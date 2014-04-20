@@ -1,0 +1,6 @@
+table caption {
+    border: 1px solid #ddd;
+    border-bottom: 0;
+    padding: 8px;
+    font-weight: bold;
+}
