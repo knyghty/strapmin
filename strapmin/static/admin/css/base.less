@@ -1,0 +1,43 @@
+@orange: #f0ad4e;
+@green: #5cb85c;
+@red: #d9534f;
+
+.glyphi {
+    font-family: 'Glyphicons Halflings';
+    font-style: normal;
+    font-weight: 100;
+    line-height: 1;
+}
+
+h2 {
+    margin-top: 0;
+}
+
+.navbar {
+    border-radius: 0 !important;
+}
+
+table caption {
+    border: 1px solid #ddd;
+    border-bottom: 0;
+    padding: 8px;
+    font-weight: bold;
+}
+
+.addlink:before {
+    .glyphi;
+    content: '\2b';
+    color: @green;
+}
+
+.changelink:before {
+    .glyphi;
+    content: '\270f';
+    color: @orange;
+}
+
+.deletelink:before {
+    .glyphi;
+    content: '\e014';
+    color: @red;
+}

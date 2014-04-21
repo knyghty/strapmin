@@ -1,2 +1,3 @@
 recursive-include strapmin/templates *
 recursive-include strapmin/static *
+recursive-include strapmin/templatetags *

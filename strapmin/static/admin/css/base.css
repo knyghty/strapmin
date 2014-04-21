@@ -1,6 +1,1 @@
-table caption {
-    border: 1px solid #ddd;
-    border-bottom: 0;
-    padding: 8px;
-    font-weight: bold;
-}
+.glyphi{font-family:'Glyphicons Halflings';font-style:normal;font-weight:100;line-height:1}h2{margin-top:0}.navbar{border-radius:0 !important}table caption{border:1px solid #ddd;border-bottom:0;padding:8px;font-weight:bold}.addlink:before{font-family:'Glyphicons Halflings';font-style:normal;font-weight:100;line-height:1;content:'\2b';color:#5cb85c}.changelink:before{font-family:'Glyphicons Halflings';font-style:normal;font-weight:100;line-height:1;content:'\270f';color:#f0ad4e}.deletelink:before{font-family:'Glyphicons Halflings';font-style:normal;font-weight:100;line-height:1;content:'\e014';color:#d9534f}

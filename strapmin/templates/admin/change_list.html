@@ -74,25 +74,29 @@
             {% block search %}{% search_form cl %}{% endblock %}
             {% block date_hierarchy %}{% date_hierarchy cl %}{% endblock %}
 
-            {% block filters %}
-                {% if cl.has_filters %}
-                    <div id="changelist-filter">
-                        <h2>{% trans 'Filter' %}</h2>
-                        {% for spec in cl.filter_specs %}{% admin_list_filter cl spec %}{% endfor %}
-                    </div>
-                {% endif %}
-            {% endblock %}
-
+            
             <form id="changelist-form" action="" method="post"{% if cl.formset.is_multipart %} enctype="multipart/form-data"{% endif %}>{% csrf_token %}
                 {% if cl.formset %}
                     <div>{{ cl.formset.management_form }}</div>
                 {% endif %}
 
-                {% block result_list %}
-                    {% if action_form and actions_on_top and cl.full_result_count %}{% admin_actions %}{% endif %}
-                    {% result_list cl %}
-                    {% if action_form and actions_on_bottom and cl.full_result_count %}{% admin_actions %}{% endif %}
-                {% endblock %}
+                <div class="row">
+                    {% block result_list %}
+                        {% if action_form and actions_on_top and cl.full_result_count %}{% admin_actions %}{% endif %}
+                        {% result_list cl %}
+                        {% if action_form and actions_on_bottom and cl.full_result_count %}{% admin_actions %}{% endif %}
+                    {% endblock %}
+
+                    {% block filters %}
+                        {% if cl.has_filters %}
+                            <div id="changelist-filter" class="col-md-2">
+                                <h2>{% trans 'Filter' %}</h2>
+                                {% for spec in cl.filter_specs %}{% admin_list_filter cl spec %}{% endfor %}
+                           </div>
+                        {% endif %}
+                    {% endblock %}
+                </div>
+
                 {% block pagination %}{% pagination cl %}{% endblock %}
             </form>
         </div>

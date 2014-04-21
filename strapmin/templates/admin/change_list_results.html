@@ -5,8 +5,8 @@
     </div>
 {% endif %}
 
-{% if results %}
-    <div class="results">
+<div class="results col-md-10">
+    {% if results %}
         <table id="result_list" class="table table-bordered table-striped">
             <thead>
                 <tr>
@@ -36,5 +36,5 @@
                 {% endfor %}
             </tbody>
         </table>
-    </div>
-{% endif %}
+    {% endif %}
+</div>
