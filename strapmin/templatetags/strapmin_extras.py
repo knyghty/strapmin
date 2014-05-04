@@ -1,5 +1,4 @@
 from django import template
-from django.apps import apps
 from django.contrib import admin
 from django.core.urlresolvers import reverse, NoReverseMatch
 from django.utils import six
@@ -24,7 +23,7 @@ def get_app_list(context):
             # Check whether user has any perm for this module.
             # If so, add the module to the model_list.
             if True in perms.values():
-                info = (app_label, model._meta.model_name)
+                info = (app_label, model._meta.module_name)
                 model_dict = {
                     'name': capfirst(model._meta.verbose_name_plural),
                     'object_name': model._meta.object_name,
@@ -44,7 +43,7 @@ def get_app_list(context):
                     app_dict[app_label]['models'].append(model_dict)
                 else:
                     app_dict[app_label] = {
-                        'name': apps.get_app_config(app_label).verbose_name,
+                        'name': app_label.title,
                         'app_label': app_label,
                         'app_url': reverse('admin:app_list', kwargs={'app_label': app_label}),#, current_app=self.name),
                         'has_module_perms': has_module_perms,
@@ -53,7 +52,7 @@ def get_app_list(context):
 
     # Sort the apps alphabetically.
     app_list = list(six.itervalues(app_dict))
-    app_list.sort(key=lambda x: x['name'].lower())
+    app_list.sort(key=lambda x: x['name'])
 
     # Sort the models alphabetically within each app.
     for app in app_list:
