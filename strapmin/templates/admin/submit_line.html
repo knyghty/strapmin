@@ -1,0 +1,34 @@
+{% load i18n admin_urls %}
+<div class="submit-row btn-group-vertical btn-group-lg pull-right">
+    {% if show_save %}
+        <button type="submit" class="default btn btn-success" name="_save" {{ onclick_attrib }}>
+            <span class="glyphicon glyphicon-save"></span>
+            {% trans 'Save' %}
+        </button>
+    {% endif %}
+
+    {% if show_save_as_new %}
+        <button type="submit" name="_saveasnew" {{ onclick_attrib }} class="btn btn-primary">{% trans 'Save as new' %}</button>
+    {% endif %}
+
+    {% if show_save_and_add_another %}
+        <button type="submit" name="_addanother" {{ onclick_attrib }} class="btn btn-primary">
+            <span class="glyphicon glyphicon-repeat"></span>
+            {% trans 'Save and add another' %}
+        </button>
+    {% endif %}
+
+    {% if show_save_and_continue %}
+        <button type="submit" name="_continue" {{ onclick_attrib }} class="btn btn-primary">
+            <span class="glyphicon glyphicon-refresh"></span>
+            {% trans 'Save and continue editing' %}
+        </button>
+    {% endif %}
+
+    {% if show_delete_link %}
+        <a href="{% url opts|admin_urlname:'delete' original.pk|admin_urlquote %}" class="btn btn-danger btn-delete">
+            <span class="glyphicon glyphicon-trash"></span>
+            {% trans "Delete" %}
+        </a>
+    {% endif %}
+</div>
