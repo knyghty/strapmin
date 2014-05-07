@@ -26,7 +26,6 @@ def get_app_list(context):
                 info = (app_label, model._meta.module_name)
                 model_dict = {
                     'name': capfirst(model._meta.verbose_name_plural),
-                    'object_name': model._meta.object_name,
                     'perms': perms,
                 }
                 if perms.get('change', False):
@@ -43,8 +42,7 @@ def get_app_list(context):
                     app_dict[app_label]['models'].append(model_dict)
                 else:
                     app_dict[app_label] = {
-                        'name': app_label.title,
-                        'app_label': app_label,
+                        'name': app_label.title(),
                         'app_url': reverse('admin:app_list', kwargs={'app_label': app_label}),#, current_app=self.name),
                         'has_module_perms': has_module_perms,
                         'models': [model_dict],
