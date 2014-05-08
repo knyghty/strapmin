@@ -227,6 +227,7 @@ p.fieldlabel {
 }
 
 #id_username,
+input#id_password,
 #id_password1,
 #id_password2 {
     .vTextField;
@@ -242,5 +243,22 @@ p.fieldlabel {
 }
 
 input[type=file] {
+    display: inline-block;
+}
+
+label {
+    display: block;
+
+    &.required:after {
+        content: '*';
+        color: @red;
+    }
+}
+
+.actions label {
+    display: inline-block;
+}
+
+#toolbar label {
     display: inline-block;
 }
