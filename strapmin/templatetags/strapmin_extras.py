@@ -43,6 +43,7 @@ def get_app_list(context):
                 else:
                     app_dict[app_label] = {
                         'name': app_label.title(),
+                        'app_label': app_label,
                         'app_url': reverse('admin:app_list', kwargs={'app_label': app_label}),#, current_app=self.name),
                         'has_module_perms': has_module_perms,
                         'models': [model_dict],
