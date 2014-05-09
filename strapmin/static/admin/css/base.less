@@ -43,6 +43,11 @@ h2 {
     border-radius: 0 !important;
 }
 
+.dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus {
+    background: #357ebd;
+    color: white;
+}
+
 table caption {
     border: 1px solid #ddd;
     border-bottom: 0;
@@ -222,14 +227,17 @@ p.fieldlabel {
 .vTimeField,
 .vDateTimeField, {
     .vTextField;
-    max-width: 200px;
+    max-width: 150px;
     display: inline-block;
 }
 
 #id_username,
 input#id_password,
 #id_password1,
-#id_password2 {
+#id_password2,
+#id_old_password,
+#id_new_password1,
+#id_new_password2, {
     .vTextField;
 }
 
@@ -259,6 +267,82 @@ label {
     display: inline-block;
 }
 
-#toolbar label {
-    display: inline-block;
+#toolbar {
+    margin-bottom: 15px;
+
+    label {
+        display: inline-block;
+    }
+}
+
+#changelist-filter {
+    h2 {
+        font-size: 24px;
+    }
+
+    h3 {
+        font-size: 16px;
+    }
+}
+
+.module .selector h2,
+.calendarbox h2,
+.calendarbox caption,
+.clockbox h2 {
+    margin: 0;
+    padding: 2px 5px 3px 5px;
+    font-size: 11px;
+    text-align: left;
+    font-weight: bold;
+    background: #7CA0C7 url(../img/default-bg.gif) top left repeat-x;
+    color: white;
+}
+
+.calendarbox caption {
+    text-align: center;
+}
+
+.clockbox,
+.calendarbox {
+    border: 1px solid #ccc;
+}
+
+img.help-tooltip {
+    cursor: help;
+}
+
+#id_user_permissions_filter,
+#id_groups_filter {
+    label {
+        display: inline-block;
+    }
+}
+
+.selector select {
+    font-size: 11px;
+    font-family: verdana, arial, sans-serif;
+    border: 1px solid #ccc;
+}
+
+.selector .selector-available h2 {
+    background: white url(../img/nav-bg.gif) bottom left repeat-x;
+    color: #666;
+}
+
+.field-user_permissions .form-group {
+    clear: both;
+}
+
+.actionlist {
+    padding-left: 20px;
+}
+
+#recent-actions-module {
+    h2 {
+        font-size: 24px;
+    }
+
+    h3 {
+        font-size: 18px;
+    }
 }
