@@ -31,6 +31,20 @@
     margin-right: 5px;
 }
 
+.glyphicon {
+    &.red {
+        color: @red;
+    }
+
+    &.orange {
+        color: @orange;
+    }
+
+    &.green {
+        color: @green;
+    }
+}
+
 a:hover {
     text-decoration: none;
 }
@@ -220,12 +234,11 @@ p.fieldlabel {
 .vIntegerField {
     .vTextField;
     max-width: 100px;
-
 }
 
 .vDateField,
 .vTimeField,
-.vDateTimeField, {
+.vDateTimeField {
     .vTextField;
     max-width: 150px;
     display: inline-block;
@@ -237,7 +250,7 @@ input#id_password,
 #id_password2,
 #id_old_password,
 #id_new_password1,
-#id_new_password2, {
+#id_new_password2 {
     .vTextField;
 }
 
@@ -344,5 +357,23 @@ img.help-tooltip {
 
     h3 {
         font-size: 18px;
+    }
+}
+
+tr.selected th,
+tr.selected td {
+    background: @bg-warning !important;
+}
+
+.change-list {
+    ul.toplinks {
+        display: block;
+
+        li {
+            padding-right: 16px;
+            font-weight: bold;
+            list-style-type: none;
+            display: inline-block;
+        }
     }
 }
