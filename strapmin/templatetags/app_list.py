@@ -8,6 +8,7 @@ from django.utils.text import capfirst
 register = template.Library()
 site = admin.site
 
+
 @register.assignment_tag(takes_context=True)
 def get_app_list(context):
     request = context['request']
@@ -30,12 +31,12 @@ def get_app_list(context):
                 }
                 if perms.get('change', False):
                     try:
-                        model_dict['admin_url'] = reverse('admin:%s_%s_changelist' % info)#, current_app=self.name)
+                        model_dict['admin_url'] = reverse('admin:%s_%s_changelist' % info)
                     except NoReverseMatch:
                         pass
                 if perms.get('add', False):
                     try:
-                        model_dict['add_url'] = reverse('admin:%s_%s_add' % info)#, current_app=self.name)
+                        model_dict['add_url'] = reverse('admin:%s_%s_add' % info)
                     except NoReverseMatch:
                         pass
                 if app_label in app_dict:
