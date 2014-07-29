@@ -13,6 +13,6 @@ setup(
     license='BSD 2 Clause',
     long_description='A bootstrappy django admin reskin',
     description='A bootstrappy django admin reskin',
-    install_requires=['django>=1.5'],
-    requires=['django (>=1.5, <1.6)'],
+    install_requires=['django >= 1.5, < 1.6'],
+    requires=['django (>= 1.5, < 1.6)'],
 )
