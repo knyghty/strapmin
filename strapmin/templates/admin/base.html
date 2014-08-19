@@ -1,4 +1,4 @@
-{% load admin_static %}{% load app_list %}<!DOCTYPE html>
+{% load admin_static app_list strapmin_tags %}<!DOCTYPE html>
 <html lang="{{ LANGUAGE_CODE|default:"en-gb" }}" {% if LANGUAGE_BIDI %}dir="rtl"{% endif %}>
     <head>
         <title>{% block title %}{% endblock %}</title>
@@ -34,7 +34,7 @@
                             {% endif %}
                             {% for app in app_list %}
                                 <li class="dropdown app-{{ app.app_label }} module">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" title="{% blocktrans with name=app.name %}Models in the {{ name }} application{% endblocktrans %}">{{ app.name }} <b class="caret"></b></a>
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" title="{% blocktrans with name=app.name %}Models in the {{ name }} application{% endblocktrans %}">{{ app.name|remscores }} <b class="caret"></b></a>
                                     <ul class="dropdown-menu">
                                         {% for model in app.models %}
                                             {% if model.admin_url %}
