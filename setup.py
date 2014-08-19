@@ -1,7 +1,7 @@
 from setuptools import setup
 
 
-version = '0.5.2'
+version = '0.5.3'
 
 setup(
     name='strapmin',
