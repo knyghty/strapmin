@@ -5,19 +5,32 @@ strapmin is a reskin of the django admin using Twitter Bootstrap.
 
 It's fully responsive and includes CKEditor for easy editing of HTML.
 
+
+Requirements
+------------
+
+For now, strapmin requires Django 1.5. Later releases will hopefully support more recent versions.
+
+
 Installation
 ------------
 
 1. `pip install strapmin`
-2. Add 'strapmin' to your INSTALLED_APPS::
+2. Add request to your context processors::
 
-    INSTALLED_APPS = (
-        'strapmin',
-        'django.contrib.admin',
-        ...
-    )
+        from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS as TCP
+        TEMPLATE_CONTEXT_PROCESSORS = TCP + ('django.core.context_processors.request',)
+
+3. Add 'strapmin' to your INSTALLED_APPS::
+
+        INSTALLED_APPS = (
+            'strapmin',
+            'django.contrib.admin',
+            ...
+        )
 
 Note: You must add `strapmin` *before* `django.contrib.admin`
+
 
 
 Usage
@@ -27,6 +40,7 @@ Create your `ModelAdmin` classes as normal.
 
 
 CKEditor
+~~~~~~~~
 
 To include a CKEditor instance for all TextFields in a model::
 
