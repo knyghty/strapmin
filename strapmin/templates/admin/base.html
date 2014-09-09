@@ -29,10 +29,8 @@
                     </div>
                     <div class="navbar-collapse collapse">
                         <ul class="nav navbar-nav">
-                            {% if not app_list %}
-                                {% get_app_list as app_list %}
-                            {% endif %}
-                            {% for app in app_list %}
+                            {% get_app_list as nav_app_list %}
+                            {% for app in nav_app_list %}
                                 <li class="dropdown app-{{ app.app_label }} module">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" title="{% blocktrans with name=app.name %}Models in the {{ name }} application{% endblocktrans %}">{{ app.name|remscores }} <b class="caret"></b></a>
                                     <ul class="dropdown-menu">
