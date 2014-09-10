@@ -31,12 +31,14 @@ def get_app_list(context):
                 }
                 if perms.get('change', False):
                     try:
-                        model_dict['admin_url'] = reverse('admin:%s_%s_changelist' % info)
+                        model_dict['admin_url'] = reverse(
+                            'admin:%s_%s_changelist' % info)
                     except NoReverseMatch:
                         pass
                 if perms.get('add', False):
                     try:
-                        model_dict['add_url'] = reverse('admin:%s_%s_add' % info)
+                        model_dict['add_url'] = reverse(
+                            'admin:%s_%s_add' % info)
                     except NoReverseMatch:
                         pass
                 if app_label in app_dict:
