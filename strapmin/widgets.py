@@ -6,9 +6,9 @@ from django.utils.safestring import mark_safe
 
 
 class RichTextEditorWidget(forms.Textarea):
-    #def __init__(self, *args, **kwargs):
-    #    kwargs['attrs'] = {'class': 'ckeditor'}
-    #    super(RichTextEditorWidget, self).__init__(*args, **kwargs)
+    class Media:
+        js = ('admin/js/ckeditor/ckeditor.js',
+              'admin/js/ckeditor/jquery-ckeditor.js')
 
     def render(self, name, value, attrs={}):
         if value is None:
@@ -19,7 +19,3 @@ class RichTextEditorWidget(forms.Textarea):
             'value': force_text(value),
             'id': final_attrs['id'],
         }))
-
-    class Media:
-        js = ('admin/js/ckeditor/ckeditor.js',
-              'admin/js/ckeditor/jquery-ckeditor.js')
