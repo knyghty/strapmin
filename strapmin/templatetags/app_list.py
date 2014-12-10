@@ -1,9 +1,15 @@
+import django
 from django import template
 from django.contrib import admin
 from django.core.urlresolvers import reverse, NoReverseMatch
 from django.utils import six
 from django.utils.text import capfirst
 
+try:
+    from django.apps import apps
+    has_appconfig = True
+except:
+    has_appconfig = False
 
 register = template.Library()
 site = admin.site
@@ -16,6 +22,8 @@ def get_app_list(context):
     user = request.user
     for model, model_admin in site._registry.items():
         app_label = model._meta.app_label
+        if has_appconfig:
+            app_name = apps.get_app_config(app_label).verbose_name
         has_module_perms = user.has_module_perms(app_label)
 
         if has_module_perms:
@@ -44,8 +52,13 @@ def get_app_list(context):
                 if app_label in app_dict:
                     app_dict[app_label]['models'].append(model_dict)
                 else:
+                    if has_appconfig:
+                        name = app_name
+                    else:
+                        name = app_label.title()
+
                     app_dict[app_label] = {
-                        'name': app_label.title(),
+                        'name': name,
                         'app_url': reverse('admin:app_list',
                                            kwargs={'app_label': app_label},
                                            current_app=site.name),

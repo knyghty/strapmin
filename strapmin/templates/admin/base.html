@@ -32,7 +32,9 @@
                             {% get_app_list as nav_app_list %}
                             {% for app in nav_app_list %}
                                 <li class="dropdown app-{{ app.app_label }} module">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" title="{% blocktrans with name=app.name %}Models in the {{ name }} application{% endblocktrans %}">{{ name|remscores }} <b class="caret"></b></a>
+                                    {% blocktrans with name=app.name %}
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" title="Models in the {{ name }} application">{{ name }} <b class="caret"></b></a>
+                                    {% endblocktrans %}
                                     <ul class="dropdown-menu">
                                         {% for model in app.models %}
                                             {% if model.admin_url %}
