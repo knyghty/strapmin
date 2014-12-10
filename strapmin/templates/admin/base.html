@@ -1,4 +1,5 @@
-{% load admin_static app_list strapmin_tags %}<!DOCTYPE html>
+{% load admin_static app_list strapmin_tags %}
+<!DOCTYPE html>
 <html lang="{{ LANGUAGE_CODE|default:"en-gb" }}" {% if LANGUAGE_BIDI %}dir="rtl"{% endif %}>
     <head>
         <title>{% block title %}{% endblock %}</title>
@@ -15,7 +16,6 @@
     {% load i18n %}
 
     <body class="{% if is_popup %}popup {% endif %}{% block bodyclass %}{% endblock %}">
-
         {% if not is_popup %}
             <div class="navbar navbar-inverse">
                 <div class="container">
@@ -32,7 +32,7 @@
                             {% get_app_list as nav_app_list %}
                             {% for app in nav_app_list %}
                                 <li class="dropdown app-{{ app.app_label }} module">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" title="{% blocktrans with name=app.name %}Models in the {{ name }} application{% endblocktrans %}">{{ app.name|remscores }} <b class="caret"></b></a>
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" title="{% blocktrans with name=app.name %}Models in the {{ name }} application{% endblocktrans %}">{{ name|remscores }} <b class="caret"></b></a>
                                     <ul class="dropdown-menu">
                                         {% for model in app.models %}
                                             {% if model.admin_url %}
@@ -86,7 +86,6 @@
                 {% endif %}
             {% endblock messages %}
 
-            <!-- Content -->
             <div id="content" class="{% block coltype %}colM{% endblock %}">
                 {% block pretitle %}{% endblock %}
                 {% block content_title %}{% if title %}<h1>{{ title }}</h1>{% endif %}{% endblock %}
@@ -97,7 +96,6 @@
                 {% block sidebar %}{% endblock %}
                 <br class="clear">
             </div>
-            <!-- END Content -->
 
             {% block footer %}<div id="footer"></div>{% endblock %}
         </div>
