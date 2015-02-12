@@ -36,6 +36,9 @@ def get_app_list(context):
                     'name': capfirst(model._meta.verbose_name_plural),
                     'perms': perms,
                 }
+                if has_appconfig:
+                    model_dict['object_name'] = model._meta.object_name
+
                 if perms.get('change', False):
                     try:
                         model_dict['admin_url'] = reverse(

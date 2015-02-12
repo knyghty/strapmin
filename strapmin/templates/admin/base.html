@@ -38,7 +38,7 @@
                                     <ul class="dropdown-menu">
                                         {% for model in app.models %}
                                             {% if model.admin_url %}
-                                                <li><a href="{{ model.admin_url }}">{{ model.name }}</a></li>
+                                                <li class="model-{{ model.object_name|lower }}"><a href="{{ model.admin_url }}">{{ model.name }}</a></li>
                                             {% endif %}
                                         {% endfor %}
                                     </li>
