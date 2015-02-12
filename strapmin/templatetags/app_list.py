@@ -1,4 +1,3 @@
-import django
 from django import template
 from django.contrib import admin
 from django.core.urlresolvers import reverse, NoReverseMatch
@@ -59,6 +58,7 @@ def get_app_list(context):
 
                     app_dict[app_label] = {
                         'name': name,
+                        'app_label': app_label,
                         'app_url': reverse('admin:app_list',
                                            kwargs={'app_label': app_label},
                                            current_app=site.name),
