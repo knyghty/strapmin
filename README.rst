@@ -6,12 +6,6 @@ strapmin is a reskin of the django admin using Twitter Bootstrap.
 It's fully responsive and includes CKEditor for easy editing of HTML.
 
 
-Requirements
-------------
-
-For now, strapmin requires Django 1.5. Later releases will hopefully support more recent versions.
-
-
 Installation
 ------------
 
