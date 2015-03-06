@@ -327,15 +327,28 @@ img.help-tooltip {
     }
 }
 
-.selector select {
-    font-size: 11px;
-    font-family: verdana, arial, sans-serif;
-    border: 1px solid #ccc;
-}
+.selector {
+    float: none;
 
-.selector .selector-available h2 {
-    background: white url(../img/nav-bg.gif) bottom left repeat-x;
-    color: #666;
+    &:before, &:after {
+        display: table;
+        content: ' ';
+    }
+
+    &:after {
+        clear: both;
+    }
+
+    select {
+        font-size: 11px;
+        font-family: verdana, arial, sans-serif;
+        border: 1px solid #ccc;
+    }
+
+    .selector-available h2 {
+        background: white url(../img/nav-bg.gif) bottom left repeat-x;
+        color: #666;
+    }
 }
 
 .field-user_permissions .form-group {
