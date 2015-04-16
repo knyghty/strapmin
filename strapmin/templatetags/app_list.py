@@ -31,7 +31,10 @@ def get_app_list(context):
             # Check whether user has any perm for this module.
             # If so, add the module to the model_list.
             if True in perms.values():
-                info = (app_label, model._meta.module_name)
+                try:
+                    info = (app_label, model._meta.model_name)
+                except AttributeError:
+                    info = (app_label, model._meta.module_name)
                 model_dict = {
                     'name': capfirst(model._meta.verbose_name_plural),
                     'perms': perms,
