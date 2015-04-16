@@ -1,8 +1,13 @@
 from django import forms
-from django.forms.util import flatatt
+
 from django.template.loader import render_to_string
 from django.utils.encoding import force_text
 from django.utils.safestring import mark_safe
+
+try:
+    from django.forms.utils import flatatt
+except ImportError:
+    from django.forms.util import flatatt
 
 
 class RichTextEditorWidget(forms.Textarea):
