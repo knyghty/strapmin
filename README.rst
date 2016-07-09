@@ -1,3 +1,17 @@
+Important
+=========
+
+This project is unmaintained. It was never a good solution to any problem, just better than
+the alternatives I had at the time. If you think you want this - you don't.
+Just use the stock admin.
+
+If you really must have something that looks a little nicer, and does a bit more than stock,
+try django-grapelli_ instead.
+
+But I might be willing to keep this up to date in exchange for lots of money.
+
+.. _django-grapelli: https://github.com/sehmaschine/django-grappelli
+
 strapmin
 ========
 
